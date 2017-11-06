@@ -5,10 +5,12 @@
     var guess = document.getElementById("guess");
     var win = document.getElementById("win");
     var lose = document.getElementById("lose");
-    var cWin = 0
-    var cLose = 0
-    var cGuess = 9
+    var cWin = 0;
+    var cLose = 0;
+    var cGuess = 9;
     var tried = [];
+    var userGuess;
+    var computerGuess;
 
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
@@ -29,8 +31,12 @@
       if (userGuess === gameChoices[i]) {
 
             // runs if equal
-            if (computerGuess === userGuess) {
+            if (computerGuess === userGuess)
+
+            {
                 
+                console.log("user = comp");
+
                 // adds 1 to win score
                 win.textContent = ++cWin;
 
@@ -39,9 +45,7 @@
                 tried = [];
                 guess.textContent = cGuess;
                 user.textContent = "";
-
-                // assign new random computer guess
-                var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+                var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];                
 
             }
 
@@ -49,9 +53,12 @@
             else if ( userGuess !== computerGuess && cGuess > 0 ) 
 
             {
+              console.log("user != comp");
 
               // Only store valid guess inputs
+              if (tried.indexOf[userGuess] == -1) {
               tried.push(userGuess);
+              }
 
               // display inputs
               user.textContent = tried;
@@ -61,7 +68,12 @@
 
             }
 
-            else {
+            // Loser
+            if (cGuess === 0) 
+
+            {
+
+              console.log("lose")
 
               // Add Lose Score
               lose.textContent = ++cLose;
@@ -71,15 +83,15 @@
               tried = [];
               guess.textContent = cGuess;
               user.textContent = "";
+              var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
 
             }
 
+
       }
+
 
     }
 
 
-
-};
-
-    
+}
