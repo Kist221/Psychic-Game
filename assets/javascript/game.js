@@ -19,9 +19,6 @@
     // Determines which key was pressed.
     var userGuess = event.key;
 
-    tried.push(userGuess);
-
-
 
 // runs if valid choice
     for (var i = 0; i < gameChoices.length; i++) 
@@ -52,6 +49,9 @@
             else if ( userGuess !== computerGuess && cGuess > 0 ) 
 
             {
+
+              // Only store valid guess inputs
+              tried.push(userGuess);
 
               // display inputs
               user.textContent = tried;
