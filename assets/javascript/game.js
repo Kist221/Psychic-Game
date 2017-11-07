@@ -9,8 +9,6 @@
     var cLose = 0;
     var cGuess = 9;
     var tried = [];
-    var userGuess;
-    var computerGuess;
 
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
@@ -30,12 +28,15 @@
       // runs if valid input
       if (userGuess === gameChoices[i]) {
 
+        console.log(userGuess);
+
             // runs if equal
             if (computerGuess === userGuess)
 
             {
                 
                 console.log("user = comp");
+                console.log("WIN");
 
                 // adds 1 to win score
                 win.textContent = ++cWin;
@@ -45,8 +46,7 @@
                 tried = [];
                 guess.textContent = cGuess;
                 user.textContent = "";
-                var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];                
-
+                computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];                
             }
 
             // lists guess & count
@@ -73,7 +73,7 @@
 
             {
 
-              console.log("lose")
+              console.log("LOSE");
 
               // Add Lose Score
               lose.textContent = ++cLose;
@@ -83,12 +83,19 @@
               tried = [];
               guess.textContent = cGuess;
               user.textContent = "";
-              var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+              computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
 
             }
 
 
       }
+
+      else {
+        
+        console.log("Invalid input. a-z only.");
+
+      }
+
 
 
     }
