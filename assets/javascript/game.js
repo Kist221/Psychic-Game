@@ -19,14 +19,8 @@
     // Determines which key was pressed.
     var userGuess = event.key;
 
-
-// runs if valid choice
-    for (var i = 0; i < gameChoices.length; i++) 
-
-    {
-
-      // runs if valid input
-      if (userGuess === gameChoices[i]) {
+    // runs if valid choice
+    if (gameChoices.indexOf(userGuess) !== -1) {
 
         console.log(userGuess);
 
@@ -55,16 +49,21 @@
             {
               console.log("user != comp");
 
-              // Only store valid guess inputs
-              if (tried.indexOf[userGuess] == -1) {
+              // Checks if guess is duplicate
+              if (tried.indexOf(userGuess) === -1) {
+              
+              console.log("tried new = true");
+
+              // push new guess to guess array
               tried.push(userGuess);
-              }
-
-              // display inputs
-              user.textContent = tried;
-
+              
               // detract guess count
               guess.textContent = --cGuess;
+
+              }
+              
+              // display inputs
+              user.textContent = tried;
 
             }
 
@@ -89,16 +88,6 @@
 
 
       }
-
-      else {
-        
-        console.log("Invalid input. a-z only.");
-
-      }
-
-
-
-    }
 
 
 }
