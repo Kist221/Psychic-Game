@@ -47,15 +47,16 @@
             else if ( userGuess !== computerGuess && cGuess > 0 ) 
 
             {
+              
               console.log("user != comp");
 
               // Checks if guess is duplicate
-              if (tried.indexOf(userGuess) === -1) {
+              if (tried.indexOf(" " + userGuess) === -1) {
               
               console.log("tried new = true");
 
               // push new guess to guess array
-              tried.push(userGuess);
+              tried.push(" " + userGuess);
               
               // detract guess count
               guess.textContent = --cGuess;
