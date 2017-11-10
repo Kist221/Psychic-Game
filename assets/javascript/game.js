@@ -19,7 +19,7 @@
     // Determines which key was pressed.
     var userGuess = event.key;
 
-    // runs if valid choice
+    // runs if valid user input guess
     if (gameChoices.indexOf(userGuess) !== -1) {
 
         console.log(userGuess);
@@ -76,7 +76,7 @@
               console.log("LOSE");
 
               // Add Lose Score
-              lose.textContent = ++cLose;
+              lose.textContent = cLose++;
 
               // Reset
               cGuess = 9;
